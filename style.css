@@ -152,7 +152,16 @@ body {
 
 /* Responsive */
 @media only screen and (max-width: 600px) {
-    .card {
-      background-color: red;
+    .container .card #logo {
+        max-width: 200px;
+        max-height: 200px;
     }
-  }
+    .container .card .footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-content: center;
+    place-items: center;
+    margin-top: 45px;
+    font-size: 14px;
+    }
+}
