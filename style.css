@@ -5,8 +5,12 @@
 
 
     --blue-solid: rgb(0, 39, 107);
+
     --font-color: #fff;
+
     --font-shadow: 1px 4px 9px rgba(6, 0, 78, 0.98), -1px -4px 8px rgb(129, 230, 255);
+
+    
     --shadow-prof: 0px 0px 5px rgba(6, 0, 78, 1), 0px 0px 10px rgba(6, 0, 78, 0.78), 0px 0px 15px rgba(6, 0, 78, 0.56);
     --shadow-proff: 0px 0px 5px rgb(21, 0, 255), 0px 0px 10px rgba(21, 0, 255, 0.78), 0px 0px 15px rgba(21, 0, 255, 0.56);
 }
@@ -38,6 +42,7 @@ body {
     display: flex;
     align-items: center;
     place-content: center;
+    perspective: 1000px;
 }
 
 .container {
@@ -45,11 +50,17 @@ body {
     width: 70vh;
     height: 650px;
     z-index: 100;
-    /* background: red; */
+    transition: 0.5s;
+    transform-style: preserve-3d;
 }
-
+.volteada{
+    transform: rotateY(180deg);
+}
 .container .card {
-    /* position: absolute; */
+    position: absolute;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: block;
     min-width: 100%;
     max-width: 40rem;
     padding: 14px;
@@ -58,8 +69,25 @@ body {
     border: solid 2px var(--blue-solid);
     border-radius: 50px;
     box-shadow: 7px 10px 50px 7px rgba(255, 255, 255, 0.25);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-
+.front-face{
+    opacity: 1;
+    visibility: visible;
+}
+.back-face{
+    transform: rotateY(-180deg);
+    opacity: 0;
+    visibility: hidden;
+}
+.volteada .back-face{
+    opacity: 1;
+    visibility: visible;
+}
+.volteada .front-face{
+    opacity: 0;
+    visibility: hidden;
+}
 .container .card header {
     display: flex;
     flex-direction: column;
@@ -90,7 +118,7 @@ body {
     animation: burnShadow 3s infinite alternate;
 }
 
-.container .card .footer {
+.container .card .media {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     place-content: center;
@@ -98,7 +126,7 @@ body {
     margin-top: 45px;
 }
 
-.container .card .footer .top {
+.container .card .media .top {
     /* background: blue; */
     max-width: 70%;
     display: flex;
@@ -106,17 +134,17 @@ body {
     justify-content: center;
 }
 
-.container .card .footer .top .social {
+.container .card .media .top .social {
     height: 50px;
     width: 50px;
     border-radius: 50%;
     border: var(--blue-solid) 5px solid;
     margin: 4px;
+    display: flex;
+    align-items: center;
+    place-content: center;
 }
-
-/* .container .card .footer .bottom {
-} */
-.container .card .footer .bottom .btop {
+.container .card .media .bottom .btop {
     display: flex;
     align-items: center;
     gap: 9px;
@@ -124,51 +152,94 @@ body {
     color: var(--font-color);
     animation: burnShadow 3s infinite alternate;
 }
+.container .card .media .top .social span{
+    /* background-color: green; */
+    display: flex;
+    align-items: center;
+    place-content: center;
+    padding: 5px;
+}
+.container .card .media .top .social span img{
+    width: 44px;
+    filter: invert(100%) sepia(46%) saturate(0%) hue-rotate(183deg) brightness(106%) contrast(102%) drop-shadow(0px 1px 2px rgba(255,255,255, 0.7));
+    /* background-color: red; */
+}
+#instagram {
+    width: 30px;
+}
+#facebook{
+    width: 37px;
+}
+#whatsapp {
+    width: 56px;
+}
+.container .card .media .top .social span img:hover{
+    cursor: pointer;
+}
+.container .card .media .top .social span img:active{
+    filter: invert(100%) sepia(46%) saturate(0%) hue-rotate(183deg) brightness(106%) contrast(102%) drop-shadow(0px 0px 2px rgba(255,255,255, 0.6));
+}
 
-.container .card .footer .bottom .btop .scolFlag {
+.container .card .media .bottom .btop .scolFlag {
     padding: 2px;
     display: flex;
     align-items: center;
 }
 
-.container .card .footer .bottom .btop .colFlag {
+.container .card .media .bottom .btop .colFlag {
     height: 20px;
     width: 23px;
 }
-
 /* BUTTON */
-/* From Uiverse.io by mi-series */ 
-.button {
-    width: 120px;
-    padding: 0;
-    border: none;
-    transform: rotate(5deg);
-    transform-origin: center;
-    font-family: "Gochi Hand", cursive;
-    text-decoration: none;
-    font-size: 12px;
-    cursor: pointer;
-    padding-bottom: 3px;
-    border-radius: 5px;
-    box-shadow: 0 2px 0 #494a4b;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background-color: #5c97db;
-  }
-  
-  .button span {
-    background: #f1f5f8;
-    display: block;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    border: 2px solid #494a4b;
-  }
-  
-  .button:active {
-    transform: translateY(5px);
-    padding-bottom: 0px;
-    outline: 0;
-  }
-  
+.container .card .media .bottom .bbottom button {
+  background-color: var(--bg-blue-dark);
+  border: 1px solid var(--bg-blue-dark);
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 2px 5px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 100px;
+}
+
+.container .card .media .bottom .bbottom button:hover {
+  background-color: rgb(61, 71, 136);
+}
+
+.container .card .media .bottom .bbottom button:active {
+  border-color: #000f967c;
+  box-shadow: rgba(0, 0, 0, 0) 0 2px 5px 0;
+  outline: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* keyframes */

@@ -1,0 +1,28 @@
+.container {
+    width: 200px;
+    height: 300px;
+    background: green;
+    transition: 1.5s;
+    transform-style: preserve-3d;
+}
+
+.caraA {
+    background-color: red;
+}
+
+.caraB {
+    background: rgba(255, 255, 255, 0.4);
+    transform: rotateY(180deg);
+}
+
+.card {
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    backface-visibility: hidden;
+    display: block;
+}
+
+.container:hover {
+    transform: rotateY(-180deg);
+}
