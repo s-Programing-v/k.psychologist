@@ -50,7 +50,7 @@ body {
     width: 70vh;
     height: 650px;
     z-index: 100;
-    transition: 0.5s;
+    transition: 0.9s;
     transform-style: preserve-3d;
 }
 .volteada{
@@ -69,7 +69,7 @@ body {
     border: solid 2px var(--blue-solid);
     border-radius: 50px;
     box-shadow: 7px 10px 50px 7px rgba(255, 255, 255, 0.25);
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
 }
 .front-face{
     opacity: 1;
@@ -127,10 +127,8 @@ body {
 }
 
 .container .card .media .top {
-    /* background: blue; */
     max-width: 70%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -153,7 +151,6 @@ body {
     animation: burnShadow 3s infinite alternate;
 }
 .container .card .media .top .social span{
-    /* background-color: green; */
     display: flex;
     align-items: center;
     place-content: center;
@@ -162,16 +159,12 @@ body {
 .container .card .media .top .social span img{
     width: 44px;
     filter: invert(100%) sepia(46%) saturate(0%) hue-rotate(183deg) brightness(106%) contrast(102%) drop-shadow(0px 1px 2px rgba(255,255,255, 0.7));
-    /* background-color: red; */
 }
 #instagram {
     width: 30px;
 }
-#facebook{
-    width: 37px;
-}
 #whatsapp {
-    width: 56px;
+    width: 40px;
 }
 .container .card .media .top .social span img:hover{
     cursor: pointer;
@@ -222,24 +215,70 @@ body {
   box-shadow: rgba(0, 0, 0, 0) 0 2px 5px 0;
   outline: 0;
 }
+.bottom{
+    margin-bottom: 20px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.back-face {
+    color: white;
+    text-shadow: 1px 2px 5px black;
+}
+.back-face-top {
+    display: flex;
+    gap: 10px;
+}
+.back-face .bLogo{
+    margin: 20px 0px 0px 20px;
+    width: 130px;
+    height: 90px;
+    border: 5px solid rgb(100, 200, 230);
+    border-radius: 50%;
+}
+.bLogoR{
+    text-align: center;
+}
+.bLogoR h1{
+    font-size: 30px;
+}
+.bLogoR h3 {
+    font-size: 20px;
+}
+.back-face-desc{
+    text-align: center;
+    margin: auto;
+    max-width: 400px;
+}
+.back-face-middle{
+    text-align: center;
+}
+.back-face-bottom{
+    display: flex;
+}
+.back-face-bottom-left{
+    width: 120px;
+    display: flex;
+    align-items: center;
+    place-content: center;
+    gap: 10px;
+}
+.back-face-bottom-left span img {
+    filter: invert(100%) sepia(46%) saturate(0%) hue-rotate(183deg) brightness(106%) contrast(102%) drop-shadow(0px 1px 2px rgba(255,255,255, 0.7));
+}
+.back-face-bottom-left span:hover{
+    cursor: pointer;
+}
+.back-face-bottom-right{
+    display: flex;
+    align-items: end;
+}
+.back-face-bottom-right ul {
+    flex-grow: 1;
+}
+.back-face-bottom-right button {
+    flex-shrink: 0;
+    height: auto;
+    width: auto;
+}
 
 
 /* keyframes */
@@ -254,6 +293,8 @@ body {
     }
 }
 
+
+
 /* Responsive */
 @media only screen and (max-width: 600px) {
     .container .card #logo {
@@ -267,5 +308,13 @@ body {
     place-items: center;
     margin-top: 45px;
     font-size: 14px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    body {
+        background-size: 140%, 40%;
+    }
+    .back-face {
+        font-size: 15px;
     }
 }
