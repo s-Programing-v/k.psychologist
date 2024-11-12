@@ -61,7 +61,6 @@ body {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     display: block;
-    min-width: 100%;
     max-width: 40rem;
     padding: 14px;
     backdrop-filter: blur(4px);
@@ -142,6 +141,12 @@ body {
     align-items: center;
     place-content: center;
 }
+.container .card .media .top .social span{
+    display: flex;
+    align-items: center;
+    place-content: center;
+    padding: 5px;
+}
 .container .card .media .bottom .btop {
     display: flex;
     align-items: center;
@@ -150,18 +155,13 @@ body {
     color: var(--font-color);
     animation: burnShadow 3s infinite alternate;
 }
-.container .card .media .top .social span{
-    display: flex;
-    align-items: center;
-    place-content: center;
-    padding: 5px;
-}
 .container .card .media .top .social span img{
     width: 44px;
     filter: invert(100%) sepia(46%) saturate(0%) hue-rotate(183deg) brightness(106%) contrast(102%) drop-shadow(0px 1px 2px rgba(255,255,255, 0.7));
 }
 #instagram {
     width: 30px;
+    padding: 5px;
 }
 #whatsapp {
     width: 40px;
@@ -257,6 +257,7 @@ body {
 .back-face-bottom-left{
     width: 120px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     place-content: center;
     gap: 10px;
@@ -275,9 +276,26 @@ body {
     flex-grow: 1;
 }
 .back-face-bottom-right button {
-    flex-shrink: 0;
-    height: auto;
-    width: auto;
+    color: red;
+    background-color: var(--bg-blue-dark);
+    border: 1px solid var(--bg-blue-dark);
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 2px 5px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 29px;
+    padding: 0 10px 0 11px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    width: 50px;
 }
 
 
@@ -315,6 +333,9 @@ body {
         background-size: 140%, 40%;
     }
     .back-face {
-        font-size: 15px;
+        font-size: 12px;
+    }
+    .container .card {
+        font-size: 12px;
     }
 }
